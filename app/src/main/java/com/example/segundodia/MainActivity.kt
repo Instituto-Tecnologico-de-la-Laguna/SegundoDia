@@ -23,7 +23,6 @@ class MainActivity : ComponentActivity() {
                     Greeting(
                         name = "Android", //Victor Alejandro Melendez Bassoco
                         //22130849
-
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
