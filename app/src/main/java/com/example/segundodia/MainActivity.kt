@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
             SegundoDiaTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
-                        name = "Android", //Adrian Rios Ramos 22130518
+                        name = "Android", //Adrian Rios Ramos  22130518
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
