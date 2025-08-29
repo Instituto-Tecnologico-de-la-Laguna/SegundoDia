@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Android",
-                        //Daniel Nunez 22131298 /
+                        //Daniel Nunez 22131298
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
