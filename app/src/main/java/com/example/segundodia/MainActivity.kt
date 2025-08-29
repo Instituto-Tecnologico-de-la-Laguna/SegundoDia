@@ -25,6 +25,7 @@ class MainActivity : ComponentActivity() {
                         //Emmanuel Hernandez Rivas
                         //22130804
 
+
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
