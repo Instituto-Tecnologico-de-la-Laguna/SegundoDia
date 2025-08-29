@@ -1,0 +1,18 @@
+Index: app/src/main/java/com/example/segundodia/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.segundodia\r\n\r\nimport android.os.Bundle\r\nimport androidx.activity.ComponentActivity\r\nimport androidx.activity.compose.setContent\r\nimport androidx.activity.enableEdgeToEdge\r\nimport androidx.compose.foundation.layout.fillMaxSize\r\nimport androidx.compose.foundation.layout.padding\r\nimport androidx.compose.material3.Scaffold\r\nimport androidx.compose.material3.Text\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.compose.ui.Modifier\r\nimport androidx.compose.ui.tooling.preview.Preview\r\nimport com.example.segundodia.ui.theme.SegundoDiaTheme\r\n\r\nclass MainActivity : ComponentActivity() {\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        enableEdgeToEdge()\r\n        setContent {\r\n            SegundoDiaTheme {\r\n                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->\r\n                    Greeting(\r\n                        name = \"Android\", //Maryjose Quiñones\r\n\r\n                        modifier = Modifier.padding(innerPadding)\r\n                    )\r\n                }\r\n            }\r\n        }\r\n    }\r\n}\r\n\r\n@Composable\r\nfun Greeting(name: String, modifier: Modifier = Modifier) {\r\n    Text(\r\n        text = \"Hello $name!\",\r\n        modifier = modifier\r\n    )\r\n}\r\n\r\n@Preview(showBackground = true)\r\n@Composable\r\nfun GreetingPreview() {\r\n    SegundoDiaTheme {\r\n        Greeting(\"Android\")\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/segundodia/MainActivity.kt b/app/src/main/java/com/example/segundodia/MainActivity.kt
+--- a/app/src/main/java/com/example/segundodia/MainActivity.kt	(revision 32f6416043e973ba596dc8e1b244dc915aa04a67)
++++ b/app/src/main/java/com/example/segundodia/MainActivity.kt	(date 1756495697547)
+@@ -22,7 +22,6 @@
+                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                     Greeting(
+                         name = "Android", //Maryjose Quiñones
+-
+                         modifier = Modifier.padding(innerPadding)
+                     )
+                 }
