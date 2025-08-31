@@ -17,6 +17,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        //David Emiliano Morales Hernandez
+        //22130814
         setContent {
             SegundoDiaTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
