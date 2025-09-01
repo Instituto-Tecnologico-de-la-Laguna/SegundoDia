@@ -21,6 +21,7 @@ class MainActivity : ComponentActivity() {
             SegundoDiaTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
+                        clase='Desarrollo android'
                         name = "Android",//Guillermo Renteria Hernandez
                         modifier = Modifier.padding(innerPadding)
                     )
@@ -32,12 +33,22 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+    Column {
+        Text(
+            text = "Hello $name!",
+            modifier = modifier,
+            50.sp
+        )
+        Text(
+            text"Guillermo Renteria",
+            fontSize = 30.sp
+        )
+        Text(
+            text $clase,
+        fontSize = 30.sp
+        )
+    }
 }
-
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
