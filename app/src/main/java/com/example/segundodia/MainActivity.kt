@@ -23,9 +23,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             SegundoDiaTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    GreetingText("Hola mundo",
-                        from = "Maryjose"
-
+                    Greeting(
+                        name = "Android",
+                        clase="Desarrollo Android",
+                        modifier = Modifier.padding(innerPadding)
                     )
                 }
             }
@@ -33,7 +34,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
 @Composable
 fun Greeting(name: String,clase:String ,modifier: Modifier = Modifier) {
     Column {
@@ -69,7 +69,10 @@ fun GreetingText(message:String, from: String,modifier:Modifier) {
             text=message,
             fontSize = 118.sp,
             lineHeight = 116.sp
-
+        )
+        Text(
+            text=from,
+            fontSize = 30.sp
         )
 
     }
