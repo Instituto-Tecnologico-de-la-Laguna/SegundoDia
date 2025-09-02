@@ -26,18 +26,16 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SegundoDiaTheme {
-
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color= MaterialTheme.colorScheme()
-                ){
+                    color = MaterialTheme.colorScheme.background
+                ) {
                     GreetingText(
-                        name = "Android",
-                        clase = "Desarrollo Android",
-                        modifier = Modifier.padding(innerPadding)
+                        "Hola Mundo",
+                        "Maryjose",
                     )
                 }
-            }
+
             }
         }
     }
@@ -45,7 +43,9 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String,clase:String ,modifier: Modifier = Modifier) {
-    Column {
+    Column(
+
+    ) {
         Text(
             text = "Hello $name!",
             modifier = modifier
@@ -60,39 +60,42 @@ fun Greeting(name: String,clase:String ,modifier: Modifier = Modifier) {
 
         )
     }
+    Column(
+        content={
+            Text("Hola Mundo")
+            Text("Expresion en Content")
+        }
+    )
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     SegundoDiaTheme {
-        Greeting("Android")
+        Greeting("Android","Desarrollo Android")
     }
 }
-
 
 @Composable
-fun GreetingText(message:String, from: String,modifier:Modifier) {
-   Column(
-       verticalArrangement=Arrangement.Center,
-       horizontalAlignment = Alignment.CenterHorizontally
-   ){
+fun GreetingText(message:String,from:String, modifier: Modifier = Modifier) {
+
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         Text(
-            text=message,
-            fontSize = 118.sp,
-            lineHeight = 116.sp
+            text = message,
+            fontSize = 110.sp,
+            lineHeight = 116.sp,
         )
         Text(
-            text=from,
+            text = from,
             fontSize = 30.sp
         )
-
     }
+
+
 }
-
-
-
-
 
 
 
