@@ -34,18 +34,15 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+@Composable
+fun Greeting(name: String,clase:String ,modifier: Modifier = Modifier) {
     Column {
         Text(
             text = "Hello $name!",
             modifier = modifier
         )
         Text(
-            text = "Jose Luis",
+            text = "Maryjose",
             fontSize = 30.sp
         )
         Text(
@@ -55,6 +52,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         )
     }
 }
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
