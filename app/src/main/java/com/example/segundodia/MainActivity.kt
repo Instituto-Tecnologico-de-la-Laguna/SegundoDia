@@ -13,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import com.example.segundodia.ui.theme.SegundoDiaTheme
 
 class MainActivity : ComponentActivity() {
@@ -38,6 +39,21 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         text = "Hello $name!",
         modifier = modifier
     )
+    Column {
+        Text(
+            text = "Hello $name!",
+            modifier = modifier
+        )
+        Text(
+            text = "Jose Luis",
+            fontSize = 30.sp
+        )
+        Text(
+            text = "$clase",
+            fontSize = 30.sp
+
+        )
+    }
 }
 @Preview(showBackground = true)
 @Composable
