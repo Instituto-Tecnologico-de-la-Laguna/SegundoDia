@@ -8,14 +8,23 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.segundodia.ui.theme.SegundoDiaTheme
@@ -30,10 +39,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingText(
-                        "Hola Mundo",
-                        "Maryjose",
-                    )
+                    //Funcion
+                    Inicio()
                 }
 
             }
@@ -42,59 +49,60 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String,clase:String ,modifier: Modifier = Modifier) {
-    Column(
+fun Inicio() {
+    var texto by remember { mutableStateOf("") }
+    var texto2 by remember { mutableStateOf("") }
+    var texto3 by remember { mutableStateOf("") }
+    var texto4 by remember { mutableStateOf("") }
+    var texto5 by remember { mutableStateOf("") }
 
-    ) {
-        Text(
-            text = "Hello $name!",
-            modifier = modifier
-        )
-        Text(
-            text = "Maryjose",
-            fontSize = 30.sp
-        )
-        Text(
-            text = "$clase",
-            fontSize = 30.sp
-
+    Column() {
+        TextField(
+            value = texto, onValueChange = { nuevoTexto ->
+                texto = nuevoTexto
+            }
         )
     }
-    Column(
-        content={
-            Text("Hola Mundo")
-            Text("Expresion en Content")
-        }
-    )
+
+    Row() {
+        //TextField con Label para el Placeholder
+        TextField(
+            value = texto2,
+            onValueChange = { texto = it },
+            label = { Text("Nombre") },
+            placeholder = { Text("Escribe tu nombre") }
+        )
+    }
+
+    Row() {
+        //
+        TextField(
+            value = texto3,
+            label = { Text("Telefono") },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
+            onValueChange = { it ->
+                texto3 = it
+            }
+        )
+    }
+
+    Row() {
+        OutlinedTextField(
+            value = texto4,
+            label = {Text("Correo")},
+            onValueChange = {texto4=it}
+        )
+    }
+
+    Row(){
+        OutlinedTextField(
+            value = texto5,
+            leadingIcon = {Icon(imageVector= Icons.Default.Email, contentDescription = "Email Icon")},
+            onValueChange={texto5=it},
+            label = {Text("Correo")},
+            placeholder = (Text("Escribe tu correo"))
+        )
 }
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    SegundoDiaTheme {
-        Greeting("Android","Desarrollo Android")
-    }
-}
-
-@Composable
-fun GreetingText(message:String,from:String, modifier: Modifier = Modifier) {
-
-    Column(
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(
-            text = message,
-            fontSize = 110.sp,
-            lineHeight = 116.sp,
-        )
-        Text(
-            text = from,
-            fontSize = 30.sp
-        )
-    }
-
-
 }
 
 
