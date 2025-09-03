@@ -78,7 +78,7 @@ fun Greeting(name: String,clase:String ,modifier: Modifier = Modifier) {
 fun GreetingPreview() {
     SegundoDiaTheme {
         Greeting("Android","Desarrollo Android")
-    }
+     }
 }
 
 @Composable
