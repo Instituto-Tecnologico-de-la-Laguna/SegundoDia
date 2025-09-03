@@ -100,7 +100,7 @@ fun Inicio() {
             leadingIcon = {Icon(imageVector= Icons.Default.Email, contentDescription = "Email Icon")},
             onValueChange={texto5=it},
             label = {Text("Correo")},
-            placeholder = (Text("Escribe tu correo"))
+            placeholder = {Text("Escribe tu correo")}
         )
 }
 }
