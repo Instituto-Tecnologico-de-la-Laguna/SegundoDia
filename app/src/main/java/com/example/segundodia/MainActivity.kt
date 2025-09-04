@@ -1,16 +1,39 @@
 package com.example.segundodia
 
+import android.R.attr.content
+import android.R.id.content
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButtonColors
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import com.example.segundodia.ui.theme.SegundoDiaTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,29 +42,73 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SegundoDiaTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android", //Adrian Rios Ramos  22130518
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    Inicio()
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    SegundoDiaTheme {
-        Greeting("Android")
+fun Inicio(){
+    var texto1 by remember { mutableStateOf("") }
+    var texto2 by remember { mutableStateOf("") }
+    var texto3 by remember { mutableStateOf("") }
+    var texto4 by remember { mutableStateOf("") }
+    var texto5 by remember { mutableStateOf("") }
+
+    Column() {
+        Row() {
+            //TextField sencillo
+            TextField(
+                value = texto1, onValueChange = { nuevoTexto ->
+                    texto1 = nuevoTexto
+                }
+            )
+        }
+        Row() {
+            //TextField con Label and Placeholder
+            TextField(
+                value = texto2,
+                onValueChange = {texto2=it},
+                label = {Text("Nombre")},
+                placeholder = {Text("Escribe tu nombre")}
+            )
+        }
+        Row() {
+            //Keyboard Options (que el textField oblige a aparecer un teclado)
+            TextField(
+                value = texto3,
+                label = {Text("Telefono")},
+                keyboardOptions =
+                    KeyboardOptions(keyboardType = KeyboardType.Phone),
+                onValueChange = {it->
+                    texto3=it
+                }
+            )
+        }
+        Row(){
+            OutlinedTextField(
+                value = texto4,
+                label = {Text("Correo")},
+                onValueChange = {texto4=it}
+            )
+        }
+        Row(){
+            //OutlinedTextField con Icono
+            OutlinedTextField(
+                value = texto5,
+                leadingIcon = {Icon(imageVector =
+                    Icons.Default.Email,contentDescription = "Email Icon")},
+                onValueChange = {texto5=it},
+                label = {Text("Correo")},
+                placeholder = {Text("Escribe tu correo")}
+            )
+        }
     }
 }
