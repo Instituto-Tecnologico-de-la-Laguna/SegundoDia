@@ -58,10 +58,9 @@ fun Inicio(){
     var texto4 by remember { mutableStateOf("") }
     var texto5 by remember { mutableStateOf("") }
 
-    Column(modifier=Modifier.fillMaxSize().padding(0.dp,100.dp,0.dp,10.dp),
+    Column(modifier=Modifier.fillMaxSize().padding(10.dp,30.dp,10.dp,10.dp),
         horizontalAlignment = Alignment.CenterHorizontally) {
-
-        Row(modifier=Modifier.padding(0.dp,0.dp,0.dp,10.dp)){
+        Row(modifier=Modifier.padding(30.dp)){
             //TextField Sencillo
             TextField(
                 value = texto1, onValueChange = { nuevoTexto ->
@@ -69,7 +68,7 @@ fun Inicio(){
                 }
             )
         }
-        Row(modifier=Modifier.padding(0.dp,0.dp,0.dp,10.dp)){
+        Row(modifier=Modifier.padding(0.dp,0.dp,0.dp,30.dp)){
             // TextField con Label and PlaceHolder
             TextField(
                 value=texto2,
@@ -78,7 +77,7 @@ fun Inicio(){
                 placeholder={Text("Escribe tu nombre")}
             )
         }
-        Row(modifier=Modifier.padding(0.dp,0.dp,0.dp,10.dp)){
+        Row(modifier=Modifier.padding(0.dp,0.dp,0.dp,30.dp)){
             //KeyBoard Options
             TextField(
                 value=texto3,
@@ -90,7 +89,7 @@ fun Inicio(){
                 }
             )
         }
-        Row(modifier=Modifier.padding(0.dp,0.dp,0.dp,10.dp)){
+        Row(modifier=Modifier.padding(0.dp,0.dp,0.dp,30.dp)){
             OutlinedTextField(
                 value=texto4,
                 label={Text("Correo")},
