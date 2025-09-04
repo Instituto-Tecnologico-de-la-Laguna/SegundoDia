@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
@@ -28,12 +29,15 @@ import androidx.compose.runtime.remember
 
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.layout
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 import com.example.segundodia.ui.theme.SegundoDiaTheme
+import java.nio.file.WatchEvent
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,16 +64,20 @@ fun Inicio(){
     var texto3 by remember { mutableStateOf("") }
     var texto4 by remember { mutableStateOf("") }
     var texto5 by remember { mutableStateOf("") }
-    Column(){
-        Row() {
+    Column(modifier=Modifier
+        .fillMaxSize()
+        .padding(10.dp,30.dp,10.dp,10.dp),
+        horizontalAlignment = Alignment.CenterHorizontally){
+        Row(modifier=Modifier.padding(30.dp)){
             //TextField Sencillo
             TextField(
+
                 value = texto1, onValueChange = { nuevoTexto ->
                     texto1 = nuevoTexto
                 }
             )
         }
-        Row(){
+        Row(modifier=Modifier.padding(0.dp,0.dp,0.dp,30.dp)){
             // TextField con Label and PlaceHolder
             TextField(
                 value=texto2,
@@ -78,7 +86,7 @@ fun Inicio(){
                 placeholder={Text("Escribe tu nombre")}
             )
         }
-        Row(){
+        Row(modifier=Modifier.padding(0.dp,0.dp,0.dp,30.dp)){
             //KeyBoard Options
             TextField(
                 value=texto3,
@@ -90,7 +98,7 @@ fun Inicio(){
                 }
             )
         }
-        Row(){
+        Row(modifier=Modifier.padding(0.dp,0.dp,0.dp,30.dp)){
             OutlinedTextField(
                 value=texto4,
                 label={Text("Correo")},
