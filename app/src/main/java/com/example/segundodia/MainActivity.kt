@@ -47,67 +47,64 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
+@Preview(showBackground = true)
 @Composable
-fun Inicio() {
-    var texto by remember { mutableStateOf("") }
+fun Inicio(){
+    var texto1 by remember { mutableStateOf("") }
     var texto2 by remember { mutableStateOf("") }
     var texto3 by remember { mutableStateOf("") }
     var texto4 by remember { mutableStateOf("") }
     var texto5 by remember { mutableStateOf("") }
-
-    Column() {
-        TextField(
-            value = texto, onValueChange = { nuevoTexto ->
-                texto = nuevoTexto
-            }
-        )
+    Column(){
+        Row() {
+            //TextField Sencillo
+            TextField(
+                value = texto1, onValueChange = { nuevoTexto ->
+                    texto1 = nuevoTexto
+                }
+            )
+        }
+        Row(){
+            // TextField con Label and PlaceHolder
+            TextField(
+                value=texto2,
+                onValueChange ={texto2=it},
+                label={Text("Nombre")},
+                placeholder={Text("Escribe tu nombre")}
+            )
+        }
+        Row(){
+            //KeyBoard Options
+            TextField(
+                value=texto3,
+                label={Text("Telefono")},
+                keyboardOptions=
+                    KeyboardOptions(keyboardType = KeyboardType.Phone),
+                onValueChange ={it->
+                    texto3=it
+                }
+            )
+        }
+        Row(){
+            OutlinedTextField(
+                value=texto4,
+                label={Text("Correo")},
+                onValueChange ={texto4=it}
+            )
+        }
+        Row(){
+            //OutlinedTextField con Icono
+            OutlinedTextField(
+                value=texto5,
+                leadingIcon={Icon(imageVector =
+                    Icons.Default.Email,contentDescription = "Email Icon")},
+                onValueChange ={texto5=it},
+                label={Text("Correo")},
+                placeholder={Text("Escribe tu correo")}
+            )
+        }
     }
-
-    Row() {
-        //TextField con Label para el Placeholder
-        TextField(
-            value = texto2,
-            onValueChange = { texto = it },
-            label = { Text("Nombre") },
-            placeholder = { Text("Escribe tu nombre") }
-        )
-    }
-
-    Row() {
-        //
-        TextField(
-            value = texto3,
-            label = { Text("Telefono") },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
-            onValueChange = { it ->
-                texto3 = it
-            }
-        )
-    }
-
-    Row() {
-        OutlinedTextField(
-            value = texto4,
-            label = {Text("Correo")},
-            onValueChange = {texto4=it}
-        )
-    }
-
-    Row(){
-        OutlinedTextField(
-            value = texto5,
-            leadingIcon = {Icon(imageVector= Icons.Default.Email, contentDescription = "Email Icon")},
-            onValueChange={texto5=it},
-            label = {Text("Correo")},
-            placeholder = {Text("Escribe tu correo")}
-        )
 }
-}
-
-
-
-
 
 
 
