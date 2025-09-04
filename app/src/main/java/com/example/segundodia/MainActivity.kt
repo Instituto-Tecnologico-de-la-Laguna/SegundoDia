@@ -48,7 +48,7 @@ fun Botones(){
             Button(onClick = { /* TODO*/ },
                 colors = ButtonDefaults.buttonColors(Color.Gray))
             {
-                Text("Boton simple")
+                Text("Boton con color")
             }
         }
     }
