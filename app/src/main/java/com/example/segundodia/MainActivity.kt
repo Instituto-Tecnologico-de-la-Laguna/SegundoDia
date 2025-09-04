@@ -22,6 +22,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
@@ -50,7 +51,8 @@ fun Inicio(){
     var texto4 by remember { mutableStateOf("") }
     var texto5 by remember { mutableStateOf("") }
 
-    Column() {
+    Column(modifier = Modifier.fillMaxSize().padding(10.dp,30.dp,10.dp, 30.dp),
+        horizontalAlignment = Alignment.CenterHorizontally) {
         Row() {
             TextField(
                 value = texto1, onValueChange = { nuevoTexto -> texto1 = nuevoTexto }
