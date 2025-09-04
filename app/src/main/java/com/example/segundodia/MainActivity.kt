@@ -29,12 +29,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.segundodia.ui.theme.SegundoDiaTheme
+import java.nio.file.WatchEvent
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,8 +66,13 @@ fun Inicio(){
     var texto4 by remember { mutableStateOf("") }
     var texto5 by remember { mutableStateOf("") }
 
-    Column() {
-        Row() {
+    Column(
+        modifier = Modifier.
+        fillMaxSize()
+            .padding(10.dp, 30.dp, 10.dp, 10.dp), //Achica los text field
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Row(modifier = Modifier.padding(30.dp)) {
             //TextField sencillo
             TextField(
                 value = texto1, onValueChange = { nuevoTexto ->
@@ -71,7 +80,7 @@ fun Inicio(){
                 }
             )
         }
-        Row() {
+        Row(modifier = Modifier.padding(0.dp, 0.dp, 0.dp, 30.dp)) {
             //TextField con Label and Placeholder
             TextField(
                 value = texto2,
@@ -80,7 +89,7 @@ fun Inicio(){
                 placeholder = {Text("Escribe tu nombre")}
             )
         }
-        Row() {
+        Row(modifier = Modifier.padding(0.dp, 0.dp, 0.dp, 30.dp)) {
             //Keyboard Options (que el textField oblige a aparecer un teclado)
             TextField(
                 value = texto3,
@@ -92,7 +101,7 @@ fun Inicio(){
                 }
             )
         }
-        Row(){
+        Row(modifier = Modifier.padding(0.dp, 0.dp, 0.dp, 30.dp)){
             OutlinedTextField(
                 value = texto4,
                 label = {Text("Correo")},
