@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
@@ -26,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.segundodia.ui.theme.SegundoDiaTheme
 
@@ -55,8 +57,11 @@ fun Inicio(){
     var texto3 by remember { mutableStateOf("") }
     var texto4 by remember { mutableStateOf("") }
     var texto5 by remember { mutableStateOf("") }
-    Column(){
-        Row() {
+
+    Column(modifier=Modifier.fillMaxSize().padding(0.dp,100.dp,0.dp,10.dp),
+        horizontalAlignment = Alignment.CenterHorizontally) {
+
+        Row(modifier=Modifier.padding(0.dp,0.dp,0.dp,10.dp)){
             //TextField Sencillo
             TextField(
                 value = texto1, onValueChange = { nuevoTexto ->
@@ -64,7 +69,7 @@ fun Inicio(){
                 }
             )
         }
-        Row(){
+        Row(modifier=Modifier.padding(0.dp,0.dp,0.dp,10.dp)){
             // TextField con Label and PlaceHolder
             TextField(
                 value=texto2,
@@ -73,7 +78,7 @@ fun Inicio(){
                 placeholder={Text("Escribe tu nombre")}
             )
         }
-        Row(){
+        Row(modifier=Modifier.padding(0.dp,0.dp,0.dp,10.dp)){
             //KeyBoard Options
             TextField(
                 value=texto3,
@@ -85,7 +90,7 @@ fun Inicio(){
                 }
             )
         }
-        Row(){
+        Row(modifier=Modifier.padding(0.dp,0.dp,0.dp,10.dp)){
             OutlinedTextField(
                 value=texto4,
                 label={Text("Correo")},
