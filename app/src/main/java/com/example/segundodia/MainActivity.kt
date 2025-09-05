@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardActions
@@ -61,18 +62,26 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun Botones(){
-    Column(modifier = Modifier,
+    Column(modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally) {
         Row(modifier = Modifier.padding(20.dp)){ Button(onClick = {/* TODO */}
         ) {
             Text("Boton simple")
         }
-            Row(){
-                Button(onClick = {/* TODO */}, colors = ButtonDefaults.buttonColors( Color.Gray)
+
+    }
+        Row(){
+            Button(onClick = {/* TODO */}, colors = ButtonDefaults.buttonColors( Color.Red)
             ) {
                 Text("Boton con Color")
             }
         }
-    }
+        Row(){
+            Button(onClick = {/* TODO */})
+            {
+                Text("Boton", color = Color.Red)
+                Text("Colors", color = Color.Yellow)
+            }
+        }
     }
 }
