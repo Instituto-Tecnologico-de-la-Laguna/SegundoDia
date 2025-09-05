@@ -1,7 +1,9 @@
 package com.example.segundodia
 
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Message
+import android.text.style.BackgroundColorSpan
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -12,6 +14,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -26,6 +30,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.segundodia.ui.theme.SegundoDiaTheme
 
@@ -42,7 +47,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Preview(showBackground = true)
+
 @Composable
 fun Inicio(){
     var texto1 by remember { mutableStateOf("") }
@@ -97,6 +102,27 @@ fun Inicio(){
                     placeholder = {Text(text="Escribe tu correo")
                 }
             )
+        }
+
+
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun Botones(){
+    Column(modifier = Modifier, horizontalAlignment = Alignment.CenterHorizontally) {
+        Row(){
+            Button(onClick = {/*TODO*/}) {
+                Text(text="Boton simple")
+            }
+        }
+        Row {
+            Button(onClick = {/*TODO*/},
+                colors = ButtonDefaults.buttonColors()) {
+                Text(text="Boton con color")
+            }
         }
     }
 }
