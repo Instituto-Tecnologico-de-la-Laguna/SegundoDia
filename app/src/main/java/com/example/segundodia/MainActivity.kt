@@ -1,34 +1,30 @@
 package com.example.segundodia
-
+import android.R
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material3.Icon
+import androidx.compose.foundation.shape.CutCornerShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.example.segundodia.ui.theme.SegundoDiaTheme
 
 class MainActivity : ComponentActivity() {
@@ -41,76 +37,93 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    //Funcion
-                    Inicio()
+                  Botones()
                 }
 
             }
         }
     }
 }
-@Preview(showBackground = true)
-@Composable
-fun Inicio(){
-    var texto1 by remember { mutableStateOf("") }
-    var texto2 by remember { mutableStateOf("") }
-    var texto3 by remember { mutableStateOf("") }
-    var texto4 by remember { mutableStateOf("") }
-    var texto5 by remember { mutableStateOf("") }
 
-    Column(modifier=Modifier.fillMaxSize().padding(10.dp,30.dp,10.dp,10.dp),
+@Composable
+fun Botones(){
+    Column (modifier = Modifier.fillMaxWidth(1f),
         horizontalAlignment = Alignment.CenterHorizontally) {
-        Row(modifier=Modifier.padding(30.dp)){
-            //TextField Sencillo
-            TextField(
-                value = texto1, onValueChange = { nuevoTexto ->
-                    texto1 = nuevoTexto
-                }
-            )
+
+        Row(modifier = Modifier.padding(20.dp)) {
+            Button(onClick = { /*TODO*/ }
+            ) {
+                Text("Boton Simple")
+
+            }
         }
-        Row(modifier=Modifier.padding(0.dp,0.dp,0.dp,30.dp)){
-            // TextField con Label and PlaceHolder
-            TextField(
-                value=texto2,
-                onValueChange ={texto2=it},
-                label={Text("Nombre")},
-                placeholder={Text("Escribe tu nombre")}
-            )
+        Row() {
+            Button(
+                onClick = {/*TODO*/ },
+                colors = ButtonDefaults.buttonColors(Color.Red)
+            ) {
+                Text("Boton con Color")
+            }
         }
-        Row(modifier=Modifier.padding(0.dp,0.dp,0.dp,30.dp)){
-            //KeyBoard Options
-            TextField(
-                value=texto3,
-                label={Text("Telefono")},
-                keyboardOptions=
-                    KeyboardOptions(keyboardType = KeyboardType.Phone),
-                onValueChange ={it->
-                    texto3=it
-                }
-            )
+
+        Row() {
+            Button(onClick = { /*TODO*/ }) {
+                Text("Boton", color = Color.Red)
+                Text("Colores", color = Color.Yellow)
+            }
         }
-        Row(modifier=Modifier.padding(0.dp,0.dp,0.dp,30.dp)){
-            OutlinedTextField(
-                value=texto4,
-                label={Text("Correo")},
-                onValueChange ={texto4=it}
-            )
-        }
+
         Row(){
-            //OutlinedTextField con Icono
-            OutlinedTextField(
-                value=texto5,
-                leadingIcon={Icon(imageVector =
-                    Icons.Default.Email,contentDescription = "Email Icon")},
-                onValueChange ={texto5=it},
-                label={Text("Correo")},
-                placeholder={Text("Escribe tu correo")}
-            )
+            Button(onClick = { /*TODO*/ }) {
+                Image(painter=painterResource(id=R.drawable.ic_menu_camera),
+                    contentDescription = "")
+                Text("Camara")
+            }
         }
+
+        Row (){
+            Button(onClick = { /*TODO*/ },
+                shape = RectangleShape)  {
+                Text("Boton con Rectángulo")
+            }
+
+        }
+
+        Row(){
+            Button(onClick = { /*TODO*/ },
+                shape = RoundedCornerShape(40.dp)){
+                Text("Boton Redondeado")
+            }
+        }
+
+        Row (){
+            Button(onClick = { /*TODO*/ },
+                shape = CutCornerShape(20.dp)){
+                Text("Terminacion Recta")
+            }
+        }
+
+        Row(){
+            Button(onClick = { /*TODO*/ },
+                border = BorderStroke(2.dp, Color.Black),
+                colors = ButtonDefaults.outlinedButtonColors(Color.Magenta)){
+                Text("Boton con Borde")
+            }
+        }
+
+        Row(){
+            Button(onClick = { /*TODO*/ },
+                elevation = ButtonDefaults.buttonElevation(
+                    defaultElevation = 10.dp,
+                    pressedElevation = 15.dp,
+                    disabledElevation = 0.dp
+                )){
+                Text("Boton con Elevacion")
+            }
+        }
+
     }
 }
-
-
 
 
 
