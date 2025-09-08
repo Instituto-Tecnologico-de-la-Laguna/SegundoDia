@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -32,10 +34,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingText(
-                        "Hola Mundo",
-                        "Jose Luis",
-                    )
+                        Greeting()
                 }
 
             }
@@ -43,60 +42,19 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun Greeting(name: String,clase:String ,modifier: Modifier = Modifier) {
-    Column(
-
-    ) {
-        Text(
-            text = "Hello $name!",
-            modifier = modifier
-        )
-        Text(
-            text = "Jose Luis",
-            fontSize = 30.sp
-        )
-        Text(
-            text = "$clase",
-            fontSize = 30.sp
-
-        )
-    }
-    Column(
-        content={
-            Text("Hola Mundo")
-            Text("Expresion en Content")
-        }
-    )
-}
-
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    SegundoDiaTheme {
-        Greeting("Android","Desarrollo Android")
+fun Greeting(){
+    Column(){
+        Row(){
+            OutlinedTextField("Enviar", onValueChange = {})
+        }
+        Row(){
+            OutlinedButton(onClick = { /*TODO*/ }) {
+                Text(text = "Enviar")
+            }
+        }
     }
 }
-
-@Composable
-fun GreetingText(message:String,from:String, modifier: Modifier = Modifier) {
-
-    Column(
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(
-            text = message,
-            fontSize = 110.sp,
-            lineHeight = 116.sp,
-        )
-        Text(
-            text = from,
-            fontSize = 30.sp
-        )
-    }
-
-
-    }
 
 
