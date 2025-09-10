@@ -87,15 +87,10 @@ fun MainScreen(items : List<Color>) {
         }
         Spacer(modifier = Modifier.padding(20.dp))
         LazyRow() {
-            items(items.size) {color->
-                Circulo(color=items[color])
-                Circulo(color=items[color])
-                Circulo(color=items[color])
-                Circulo(color=items[color])
-                Circulo(color=items[color])
-                Circulo(color=items[color])
-                Circulo(color=items[color])
-                Circulo(color=items[color])
+            items(items.size) {index->
+                for (item in items) {
+                    Circulo(item)
+                }
             }
         }
     }
