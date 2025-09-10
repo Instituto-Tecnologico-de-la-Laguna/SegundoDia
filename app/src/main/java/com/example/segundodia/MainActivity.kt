@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                  Botones()
+                  MainScreen()
                 }
 
             }
@@ -47,89 +47,25 @@ class MainActivity : ComponentActivity() {
 }
 @Preview(showBackground = true)
 @Composable
-fun Botones(){
-    Column (modifier = Modifier.fillMaxWidth(1f),
-        horizontalAlignment = Alignment.CenterHorizontally) {
-
-        Row(modifier = Modifier.padding(20.dp)) {
-            Button(onClick = { /*TODO*/ }
-            ) {
-                Text("Boton Simple")
-
-            }
-        }
-        Row() {
-            Button(
-                onClick = {/*TODO*/ },
-                colors = ButtonDefaults.buttonColors(Color.Red)
-            ) {
-                Text("Boton con Color")
-            }
-        }
-
-        Row() {
-            Button(onClick = { /*TODO*/ }) {
-                Text("Boton", color = Color.Red)
-                Text("Colores", color = Color.Yellow)
-            }
-        }
-
+fun MainScreen() {
+    Column(){
         Row(){
-            Button(onClick = { /*TODO*/ }) {
-                Image(painter=painterResource(id=R.drawable.ic_menu_camera),
-                    contentDescription = "")
-                Text("Camara")
-            }
+            Image(
+                painterResource(id=R.drawable.ic_input_delete),
+                contentDescription = null)
         }
-
-        Row (){
-            Button(onClick = { /*TODO*/ },
-                shape = RectangleShape)  {
-                Text("Boton con Rectángulo")
-            }
-
-        }
-
-        Row(){
-            Button(onClick = { /*TODO*/ },
-                shape = RoundedCornerShape(40.dp)){
-                Text("Boton Redondeado")
-            }
-        }
-
-        Row (){
-            Button(onClick = { /*TODO*/ },
-                shape = CutCornerShape(20.dp)){
-                Text("Terminacion Recta")
-            }
-        }
-
-        Row(){
-            Button(onClick = { /*TODO*/ },
-                border = BorderStroke(2.dp, Color.Black),
-                colors = ButtonDefaults.outlinedButtonColors(Color.Magenta)){
-                Text("Boton con Borde")
-            }
-        }
-
-        Row(){
-            Button(onClick = { /*TODO*/ },
-                elevation = ButtonDefaults.buttonElevation(
-                    defaultElevation = 10.dp,
-                    pressedElevation = 15.dp,
-                    disabledElevation = 0.dp
-                )){
-                Text("Boton con Elevacion")
-            }
-        }
-
     }
 }
 
+fun Texto(){
+        Row(){
+            Texto("cr",
+                Color.Blue,
+                Color.Red
 
-
-
-
+            )
+}
+}
 
 
 
