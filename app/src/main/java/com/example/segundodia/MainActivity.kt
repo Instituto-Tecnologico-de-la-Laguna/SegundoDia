@@ -111,6 +111,7 @@ fun Inicio() {
             padding(0.dp, 0.dp, 0.dp, 30.dp)
         ){
             OutlinedTextField(
+                //
                 value = texto4,
                 label = { Text("Correo") },
                 onValueChange = { texto4 = it },
