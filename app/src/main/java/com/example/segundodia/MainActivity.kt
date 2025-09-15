@@ -59,6 +59,7 @@ import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 //import androidx.compose.foundation.ui.res.painterResource
 import androidx.compose.ui.graphics.RectangleShape
+import com.example.segundodia.view.HomeView
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,83 +67,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SegundoDiaTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Botones();
 
-                }
-
+                HomeView()
             }
         }
     }
-}
-
-@Composable
-fun Botones(){
-    //para limitar el tamano de las cosas se agrega una columna
-    //y para agregar mas se meten en rows
-    Column(modifier = Modifier,
-        horizontalAlignment = Alignment.CenterHorizontally) {
-        Row(modifier = Modifier.padding(20.dp,90.dp,20.dp,20.dp))
-        { Button(onClick = {})
-        {
-            Text("Boton Simple")
-        }
-        }
-
-        Row() {
-            Button(onClick = {},
-                colors = ButtonDefaults.buttonColors(Color.Red) ) {
-                Text("Boton con color")
-            }
-        }
-
-        Row(){
-            Button(onClick = {}) {
-                Text("Boton",color = Color.Red)
-                Text("Colores",color = Color.Yellow)
-            }
-        }
-        Row(){
-            Button(onClick = {}){
-                Image(painter = painterResource(id = R.drawable.ic_menu_camera),
-                    contentDescription = "")
-                Text("Camara")
-            }
-        }
-        Row() {
-            Button(onClick = {}, shape = RectangleShape) {
-            Text("Botón con rectángulo")
-            }
-        }
-        Row() {
-            Button(onClick = {}, shape = RoundedCornerShape(40.dp)) {
-            Text("Botón redondeado")
-            }
-        }
-        Row() {
-            Button(onClick = {}, shape = CutCornerShape(40.dp)) {
-            Text("Terminación recta")
-            }
-        }
-        Row() {
-            Button(
-                onClick = {}, border = BorderStroke(2.dp, Color.Black),
-                colors = ButtonDefaults.outlinedButtonColors(Color.Red)
-            ) {
-                Text("Botón con borde")
-            }
-        }
-        Row() {
-            Button(onClick = {}, elevation = ButtonDefaults.buttonElevation(
-                defaultElevation = 10.dp,
-                pressedElevation = 15.dp,
-                disabledElevation = 0.dp
-            )) {
-                Text("Botón con elevación")
-            }
-        }
-            }
 }
