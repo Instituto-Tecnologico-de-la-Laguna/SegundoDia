@@ -51,7 +51,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.segundodia.navigation.NavManager
 import com.example.segundodia.ui.theme.SegundoDiaTheme
+import com.example.segundodia.views.HomeView
 import java.nio.file.WatchEvent
 
 class MainActivity : ComponentActivity() {
@@ -60,72 +62,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SegundoDiaTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    val focusManager = LocalFocusManager.current
-                    val items = listOf(
-                        Color.Green,
-                        Color.Green,
-                        Color.White,
-                        Color.White,
-                        Color.Black,
-                        Color.White,
-                        Color.White,
-                        Color.Red,
-                        Color.Red
-                    )
-                    MainScreen(items)
-                }
+                NavManager()
             }
         }
     }
 }
 
 
-
-@Composable
-fun  MainScreen(items: List<Color>){
-    Column(modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally){
-        Row() {
-            Image(
-                painter = painterResource(id = R.drawable.ds2_sxsw2025_screenshots013),
-                contentDescription = null
-
-            )
-        }
-        Row() {
-            Texto(texto = "Text1",Color.Black, colorLetra = Color.Red)
-            Spacer(modifier = Modifier.padding(10.dp))
-            Texto(texto = "Text2",Color.Black, colorLetra = Color.Red)
-        }
-        Spacer(modifier = Modifier.padding(20.dp))
-        LazyRow(){
-            items(items.size){ index ->
-                for (item in items){
-                    Circulo(item)
-                }
-
-            }
-        }
-    }
-}
-
-@Composable
-fun Texto(texto: String, fondo: Color, colorLetra: Color){
-    Text(
-        text = texto,
-        color=colorLetra,
-        fontSize = 40.sp,
-        modifier = Modifier.background(fondo),
-    )
-}
-
-@Composable
-fun Circulo(color:Color){
-    Box(modifier = Modifier.background(color, shape = CircleShape).size(70.dp).padding(10.dp)){
-
-    }
-}
