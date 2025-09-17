@@ -18,7 +18,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.example.segundodia.navegation.NavManager
 import com.example.segundodia.ui.theme.SegundoDiaTheme
+import com.example.segundodia.view.HomeView
 
 
 class MainActivity : ComponentActivity() {
@@ -27,14 +30,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SegundoDiaTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
 
-
-                }
-
+                NavManager()
             }
         }
     }
