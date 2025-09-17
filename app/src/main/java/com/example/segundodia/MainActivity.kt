@@ -29,6 +29,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.segundodia.navigation.NavManager
 
 import com.example.segundodia.ui.theme.SegundoDiaTheme
 import com.example.segundodia.view.HomeView
@@ -39,7 +40,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SegundoDiaTheme {
-                HomeView()
+                NavManager()
         }
     }
     }

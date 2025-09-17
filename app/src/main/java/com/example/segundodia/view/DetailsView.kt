@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavController
 import com.example.segundodia.components.MainButton
 import com.example.segundodia.components.MainIconButton
 import com.example.segundodia.components.Space
