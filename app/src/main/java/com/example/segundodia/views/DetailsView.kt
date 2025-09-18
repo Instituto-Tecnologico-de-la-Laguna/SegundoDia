@@ -41,13 +41,13 @@ fun DetailView(navController: NavController){
     )
 }
     ){
-        ContentDetailView()
+        ContentDetailView(navController)
     }
 
 }
 
 @Composable
-fun ContentDetailView() {
+fun ContentDetailView(navController: NavController) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -60,6 +60,8 @@ fun ContentDetailView() {
             name = "Return Home",
             backColor = Color.Blue,
             color = Color.White
-        ) { }
+        ) {
+            navController.navigate(route="Home")
+        }
     }
 }
