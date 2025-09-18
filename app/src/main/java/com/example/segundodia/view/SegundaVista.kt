@@ -27,13 +27,13 @@ import com.example.segundodia.components.TitleBar
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun DetailsView(navController: NavController,id:Int){
+fun SegundaVista(navController: NavController,valor:Int){
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { TitleBar("DetailsView") },
+                title = { TitleBar("SegundaVista") },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = Color.Blue
+                    containerColor = Color.Green
                 )
                 ,navigationIcon= {
                     MainIconButton(icon = Icons.Default.ArrowBack) {
@@ -45,25 +45,25 @@ fun DetailsView(navController: NavController,id:Int){
             )
         }
     ){
-        ContentDetailView(navController,id)
+        ContentSegundaVista(navController,valor)
     }
 
 
 }
 
 @Composable
-fun ContentDetailView(navController: NavController,id:Int) {
+fun ContentSegundaVista(navController: NavController,valor:Int) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        TextView(texto="Detail View")
+        TextView(texto="Segunda vista")
         Space(espacio = 20)
-        TextView (texto=id.toString())
+        TextView (texto=valor.toString())
         MainButton(
             name="Return Home",
-            backColor = Color.Blue,
+            backColor = Color.Green,
             color = Color.White
         ) {
             navController.navigate("HomeView")}

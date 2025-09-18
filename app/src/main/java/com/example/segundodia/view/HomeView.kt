@@ -45,6 +45,8 @@ fun HomeView(navController: NavController){
 }
 @Composable
 fun ContentHomeView(navController: NavController){
+    val id = 1;
+    val valor = 50;
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -58,7 +60,16 @@ fun ContentHomeView(navController: NavController){
             backColor = Color.Red,
             color = Color.White
         ) {
-            navController.navigate("DetailView")
+            navController.navigate("DetailView/$id")
+        }
+
+        MainButton(
+            name = "SegundaVista",
+            backColor = Color.Green,
+            color = Color.White
+        ){
+            navController.navigate("SegundaVista/$valor")
         }
     }
+
 }
