@@ -26,7 +26,7 @@ import com.example.segundodia.components.TitleBar
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun DetailsView(){
+fun DetailsView(navController: NavController,id:Int){
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -36,18 +36,19 @@ fun DetailsView(){
                 )
         ,navigationIcon= {
             MainIconButton(icon = Icons.Default.ArrowBack) {
+                navController.popBackStack()
             }
         }
     )
 }
     ){
-        ContentDetailView()
+        ContentDetailView(navController,id)
     }
 
 }
 
 @Composable
-fun ContentDetailView() {
+fun ContentDetailView(navController: NavController,id: Int) {
    Column(
        modifier = Modifier.fillMaxSize(),
        verticalArrangement = Arrangement.Center,
@@ -55,11 +56,13 @@ fun ContentDetailView() {
    ){
        TextView(texto="Detail View")
        Space(espacio = 20)
-       TextView (texto="ID")
+       TextView (texto=id.toString())
        MainButton(
            name="Return Home",
            backColor = Color.Blue,
            color = Color.White
-       ) { }
+       ) {
+           navController.navigate("Home")
+       }
    }
 }
