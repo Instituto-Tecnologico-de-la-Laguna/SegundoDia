@@ -33,6 +33,7 @@ import com.example.segundodia.navigation.NavManager
 
 import com.example.segundodia.ui.theme.SegundoDiaTheme
 import com.example.segundodia.view.HomeView
+import com.example.segundodia.view.SplashScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +44,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             SegundoDiaTheme {
                 NavManager()
+                //SplashScreen()
         }
     }
     }
