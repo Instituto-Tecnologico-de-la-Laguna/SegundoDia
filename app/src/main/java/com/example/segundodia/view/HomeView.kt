@@ -14,17 +14,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
+import androidx.navigation.Navigator
 import com.example.segundodia.components.ActionButton
 import com.example.segundodia.components.MainButton
 import com.example.segundodia.components.Space
 import com.example.segundodia.components.TextView
 import com.example.segundodia.components.TitleBar
 
-//@Preview(showBackground = true)
+
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun HomeView(navController:NavController){
+fun HomeView(navController: NavController){
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -44,18 +45,20 @@ fun HomeView(navController:NavController){
 }
 @Composable
 fun ContentHomeView(navController: NavController){
-    Column(modifier=Modifier.fillMaxSize(),
+    val id=10;
+    Column(
+        modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally){
-        TextView("HomeView")
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        TextView("Home View")
         Space(espacio = 20)
         MainButton(
             name="Detail View",
             backColor = Color.Red,
             color = Color.White
-        ) {
-            navController.navigate("Detail")
-
+        ){
+            navController.navigate("Detail/${id}")
         }
     }
 }

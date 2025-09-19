@@ -1,24 +1,35 @@
-package com.example.segundodia.navegation
+package com.example.segundodia.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.segundodia.view.DetailsView
 import com.example.segundodia.view.HomeView
+import com.example.segundodia.view.SplashScreen
+
 
 @Composable
 fun NavManager(){
-    val navController: NavHostController = rememberNavController()
+    val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = "Home") {
-        composable("Home") {
+    NavHost(navController = navController,
+        startDestination = "Splash"){
+        composable("Home"){
             HomeView(navController)
         }
-        composable ("Detail"){
-            DetailsView(navController)
+        composable("Detail/{id}",arguments =
+            listOf(navArgument("id")
+            {type= NavType.IntType })){
+            val id=it.arguments?.getInt("id")?:0
+            DetailsView(navController,id)
         }
+composable(route="Splash"){
+    SplashScreen(navController)
+}
     }
 }
