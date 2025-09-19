@@ -10,6 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.segundodia.view.DetailsView
 import com.example.segundodia.view.HomeView
+import com.example.segundodia.view.SplashScreen
 
 
 @Composable
@@ -17,7 +18,7 @@ fun NavManager(){
     val navController = rememberNavController()
 
     NavHost(navController = navController,
-        startDestination = "Home"){
+        startDestination = "Splash"){
         composable("Home"){
             HomeView(navController)
         }
@@ -26,6 +27,9 @@ fun NavManager(){
             {type= NavType.IntType })){
             val id=it.arguments?.getInt("id")?:0
             DetailsView(navController,id)
+        }
+        composable("Splash"){
+            SplashScreen(navController)
         }
 
     }
