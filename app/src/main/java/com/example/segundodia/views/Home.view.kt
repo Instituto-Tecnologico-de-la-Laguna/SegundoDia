@@ -44,6 +44,7 @@ fun HomeView(navController: NavController){
 
 @Composable
 fun ContentHomeView(navController: NavController){
+    val id = 10;
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -57,6 +58,13 @@ fun ContentHomeView(navController: NavController){
             color = Color.White
         ) {
             navController.navigate(route="Detail")
+        }
+        MainButton(
+            name = "Detail View2",
+            backColor = Color.Red,
+            color = Color.White
+        ) {
+            navController.navigate(route="Detail/${id}")
         }
     }
 }

@@ -54,6 +54,7 @@ import androidx.compose.ui.unit.sp
 import com.example.segundodia.navigation.NavManager
 import com.example.segundodia.ui.theme.SegundoDiaTheme
 import com.example.segundodia.views.HomeView
+import com.example.segundodia.views.SplashScreen
 import java.nio.file.WatchEvent
 
 class MainActivity : ComponentActivity() {
@@ -63,6 +64,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             SegundoDiaTheme {
                 NavManager()
+                //SplashScreen()
             }
         }
     }
