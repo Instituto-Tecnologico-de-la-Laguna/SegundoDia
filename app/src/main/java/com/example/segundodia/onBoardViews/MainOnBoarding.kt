@@ -18,9 +18,9 @@ import com.google.accompanist.pager.PagerState
 
 @OptIn(ExperimentalPagerApi::class,
     ExperimentalFoundationApi::class)
-//, store: StoreBoarding
+
 @Composable
-fun MainOnBoarding(navController: NavController){
+fun MainOnBoarding(navController: NavController, store: StoreBoarding){
     val items=ArrayList<PageData>()
 
     items.add(
@@ -56,7 +56,7 @@ fun MainOnBoarding(navController: NavController){
             .fillMaxWidth()
             .fillMaxHeight()
             .background(Color.White),
-        navController
+        navController,store
     )
 
 }

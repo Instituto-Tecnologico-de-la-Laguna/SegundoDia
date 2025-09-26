@@ -6,6 +6,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -14,11 +18,15 @@ import com.example.segundodia.R
 import kotlinx.coroutines.delay
 
 @Composable
-fun SplashScreen(navController: NavController) {
+fun SplashScreen(navController: NavController,store:Boolean?) {
+    var screen :String by remember{mutableStateOf("")}
+    screen=if(store==true) "Home" else "OnBoarding"
+
+
     LaunchedEffect(key1 = true) {
         delay(1000)
-        navController.navigate("Home") {
-            popUpTo("Home") {
+        navController.navigate(screen) {
+            popUpTo(0) {
             }
         }
     }

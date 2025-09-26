@@ -30,7 +30,7 @@ fun OnBoardingPager(
     item:ArrayList<PageData>,
    pagerState: PagerState,
     modifier: Modifier,
-    navController: NavController//,store: StoreBoarding
+    navController: NavController,store: StoreBoarding
 ){
     Box(modifier=Modifier){
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -72,10 +72,10 @@ fun OnBoardingPager(
         }
         Box(modifier = Modifier.align(Alignment.BottomCenter))
         {
-           /* ButtonFinish(currentPage =
+            ButtonFinish(currentPage =
                 pagerState.currentPage,
                 navController,store
-            )*/
+            )
         }
     }
 
