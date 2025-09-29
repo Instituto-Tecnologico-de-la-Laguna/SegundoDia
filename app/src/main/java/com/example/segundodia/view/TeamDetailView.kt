@@ -4,6 +4,12 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.Image
+import androidx.compose.ui.Alignment
+import androidx.compose.runtime.remember
+import androidx.compose.ui.platform.LocalContext
+import android.graphics.BitmapFactory
+import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -12,7 +18,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -49,6 +54,16 @@ fun TeamDetailView(navController: NavController, teamId: Int){
             verticalArrangement = Arrangement.spacedBy(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ){
+            val context = LocalContext.current
+            val rawId = team?.let { t -> NFLRepository.getTeamLogoRawResId(context, t) } ?: 0
+            val logo = remember(team?.id, rawId) {
+                if (rawId != 0) BitmapFactory.decodeStream(
+                    context.resources.openRawResource(rawId)
+                )?.asImageBitmap() else null
+            }
+            if (logo != null) {
+                Image(bitmap = logo, contentDescription = team?.name)
+            }
             Text(text = team?.name ?: "", fontSize = 28.sp)
             Text(text = team?.description ?: "", fontSize = 18.sp)
         }

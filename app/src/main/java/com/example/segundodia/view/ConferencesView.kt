@@ -48,23 +48,28 @@ fun ConferencesView(navController: NavController){
         ).asImageBitmap()
     }
 
-    Column(
+    Box(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+        contentAlignment = Alignment.Center
     ){
-        ConferenceButton(
-            title = "Conferencia Americana (AFC)",
-            logo = afcLogo,
-            color = Color(0xFFE31837)
-        ) { navController.navigate("Teams/${Conference.AFC.name}") }
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ){
+            ConferenceButton(
+                title = "Conferencia Americana (AFC)",
+                logo = afcLogo,
+                color = Color(0xFFE31837)
+            ) { navController.navigate("Teams/${Conference.AFC.name}") }
 
-        ConferenceButton(
-            title = "Conferencia Nacional (NFC)",
-            logo = nfcLogo,
-            color = Color(0xFF004C54)
-        ) { navController.navigate("Teams/${Conference.NFC.name}") }
+            ConferenceButton(
+                title = "Conferencia Nacional (NFC)",
+                logo = nfcLogo,
+                color = Color(0xFF004C54)
+            ) { navController.navigate("Teams/${Conference.NFC.name}") }
+        }
     }
 }
 

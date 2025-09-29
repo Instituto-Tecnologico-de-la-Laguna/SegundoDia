@@ -11,6 +11,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.runtime.remember
+import androidx.compose.ui.platform.LocalContext
+import android.graphics.BitmapFactory
+import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.foundation.Image
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
@@ -30,10 +37,11 @@ import com.example.segundodia.data.Team
 fun TeamsView(navController: NavController, conferenceName: String){
     val conference = Conference.valueOf(conferenceName)
     val teams: List<Team> = NFLRepository.getTeamsByConference(conference)
-    Column(
+    Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(12.dp)
+            .padding(12.dp),
+        contentAlignment = Alignment.Center
     ) {
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
@@ -56,12 +64,22 @@ private fun TeamItem(team: Team, onClick: () -> Unit){
             .clickable { onClick() },
         colors = CardDefaults.cardColors(containerColor = team.primaryColor)
     ){
+        val context = LocalContext.current
+        val rawId = remember(team.id) { NFLRepository.getTeamLogoRawResId(context, team) }
+        val logo: ImageBitmap? = remember(team.id, rawId) {
+            if (rawId != 0) BitmapFactory.decodeStream(
+                context.resources.openRawResource(rawId)
+            )?.asImageBitmap() else null
+        }
         Box(
-            modifier = Modifier
-                .fillMaxSize(),
+            modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ){
-            Text(text = team.name, color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Bold)
+            if (logo != null) {
+                Image(bitmap = logo, contentDescription = team.name)
+            } else {
+                Text(text = team.name, color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Bold)
+            }
         }
     }
 }

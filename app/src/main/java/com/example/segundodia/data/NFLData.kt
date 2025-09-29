@@ -81,6 +81,22 @@ object NFLRepository {
         teams.filter { it.conference == conference }
 
     fun getTeamById(id: Int): Team? = teams.firstOrNull { it.id == id }
+
+    // Obtiene el id de recurso en raw por nombre mapeado; devuelve 0 si no existe
+    fun getTeamLogoRawResId(context: android.content.Context, team: Team): Int {
+        val nameToRaw: Map<String, String> = mapOf(
+            "Kansas City Chiefs" to "chiefs_logo",
+            "Buffalo Bills" to "bills_logo",
+            "Baltimore Ravens" to "ravens_logo",
+            "Cincinnati Bengals" to "bengals_logo",
+            "San Francisco 49ers" to "fortyniners_logo",
+            "Philadelphia Eagles" to "eagles_logo",
+            "Dallas Cowboys" to "cowboys_logo",
+            "Detroit Lions" to "lions_logo"
+        )
+        val rawName = nameToRaw[team.name] ?: return 0
+        return context.resources.getIdentifier(rawName, "raw", context.packageName)
+    }
 }
 
 
