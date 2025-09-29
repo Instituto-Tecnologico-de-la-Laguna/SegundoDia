@@ -17,9 +17,8 @@ import kotlinx.coroutines.delay
 fun SplashScreen(navController: NavController) {
     LaunchedEffect(key1 = true) {
         delay(1000)
-        navController.navigate("Home") {
-            popUpTo("Home") {
-            }
+        navController.navigate("Conferences") {
+            popUpTo("Splash") { inclusive = true }
         }
     }
         Box(

@@ -21,8 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 
 import com.example.segundodia.ui.theme.SegundoDiaTheme
-import com.example.segundodia.view.HomeView
-import com.example.segundodia.view.SplashScreen
+import com.example.segundodia.navigation.NavManager
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +35,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
+                    NavManager()
                 }
 
             }
