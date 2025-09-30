@@ -16,7 +16,6 @@ import androidx.compose.ui.platform.LocalContext
 import android.graphics.BitmapFactory
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.foundation.Image
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
