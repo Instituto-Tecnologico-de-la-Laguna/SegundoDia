@@ -20,6 +20,14 @@ import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import com.example.segundodia.components.MainIconButton
+import com.example.segundodia.components.TitleBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -32,23 +40,41 @@ import com.example.segundodia.data.Conference
 import com.example.segundodia.data.NFLRepository
 import com.example.segundodia.data.Team
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TeamsView(navController: NavController, conferenceName: String){
     val conference = Conference.valueOf(conferenceName)
     val teams: List<Team> = NFLRepository.getTeamsByConference(conference)
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(12.dp),
-        contentAlignment = Alignment.Center
-    ) {
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
+    Scaffold(
+        topBar = {
+            CenterAlignedTopAppBar(
+                title = { TitleBar(if (conference == Conference.AFC) "AFC" else "NFC") },
+                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                    containerColor = Color.DarkGray
+                ),
+                navigationIcon = {
+                    MainIconButton(icon = Icons.Default.ArrowBack) {
+                        navController.popBackStack()
+                    }
+                }
+            )
+        }
+    ){
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(it)
+                .padding(12.dp),
+            contentAlignment = Alignment.Center
         ) {
-            items(teams) { team ->
-                TeamItem(team = team){ navController.navigate("TeamDetail/${team.id}") }
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(2),
+                verticalArrangement = Arrangement.spacedBy(12.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+            ) {
+                items(teams) { team ->
+                    TeamItem(team = team){ navController.navigate("TeamDetail/${team.id}") }
+                }
             }
         }
     }
