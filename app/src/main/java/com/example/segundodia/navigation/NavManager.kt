@@ -12,14 +12,16 @@ import com.example.segundodia.view.HomeView
 import com.example.segundodia.view.TeamDetailView
 import com.example.segundodia.view.TeamsView
 import com.example.segundodia.view.SplashScreen
+import com.example.segundodia.view.ISRView
 
 
 @Composable
 fun NavManager(){
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = "Splash"){
+    NavHost(navController = navController, startDestination = "ISR"){
         composable("Splash"){ SplashScreen(navController) }
+        composable("ISR"){ ISRView(navController) }
         composable("Home"){ HomeView(navController) }
         composable("Conferences"){ ConferencesView(navController) }
         composable(
