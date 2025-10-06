@@ -40,6 +40,16 @@ android {
 }
 
 dependencies {
+    val nav_version = "2.9.4"
+    implementation("androidx.navigation:navigation-compose:$nav_version")
+    //--OnBaording
+    implementation("com.google.accompanist:accompanist-pager:0.15.0")
+
+    //--Lottie
+    implementation("com.airbnb.android:lottie-compose:5.2.0")
+        
+    //--DataStore
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -49,6 +59,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.runtime.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
